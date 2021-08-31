@@ -37,5 +37,5 @@ extern CAppModule _Module;
 #include <memory.h>
 #include <tchar.h>
 
-#define APP_NAME _T("")
-#define APP_URL _T("https://soft.clearseve.com/thread-10-1-1.html")
+#define APP_NAME _T("EXE与DLL平台检测")
+#define APP_URL _T("https://soft.clearseve.com/thread-12-1-1.html")
