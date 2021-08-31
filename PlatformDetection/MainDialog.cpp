@@ -162,8 +162,12 @@ CAtlString CMainDialog::GetSuffix(LPCTSTR pszFilePath)
 
 BOOL CMainDialog::PreTranslateMessage(MSG* pMsg)
 {
-    BOOL bDialogMessage = ::IsDialogMessage(m_hWnd, pMsg);
+    // 屏蔽窗口ESC和回车按键
+    if (WM_KEYDOWN == pMsg->message && (VK_ESCAPE == pMsg->wParam || VK_RETURN == pMsg->wParam)) {
+        return TRUE;
+    }
 
+    BOOL bDialogMessage = ::IsDialogMessage(m_hWnd, pMsg);
     if (WM_SYSCOMMAND == pMsg->message) {
         int nId = LOWORD(pMsg->wParam);
         if (IDM_ABOUT == nId) {
